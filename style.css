@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -218,4 +221,162 @@ footer {
 .social-icons a img:hover {
   transform: scale(1.2);
   filter: brightness(1) invert(0);
+}
+/* -----------------------
+   MOBILE RESPONSIVE DESIGN
+------------------------ */
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header {
+        padding: 40px 10px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .profile-img {
+        width: 130px;
+        height: 130px;
+    }
+
+    section {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .skills-list, .project-list {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 22px;
+    }
+    p {
+        font-size: 15px;
+    }
+}
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+}
+
+/* Hide menu by default on phones */
+#nav-menu {
+    transition: max-height 0.3s ease;
+}
+
+/* MOBILE VERSION */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        background: #007bff;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        padding-left: 0;
+    }
+
+    nav ul.show {
+        max-height: 500px; /* Expand menu */
+    }
+
+    nav ul li {
+        padding: 10px 0;
+        text-align: center;
+    }
+}
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Theme Toggle Button */
+#theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    color: white;
+}
+/* DARK MODE */
+body.dark {
+    background: #121212;
+    color: #f5f5f5;
+}
+
+body.dark header {
+    background: #1e1e1e;
+}
+
+body.dark nav ul {
+    background: #1e1e1e;
+}
+
+body.dark a {
+    color: #9bbcff;
+}
+.contact-form {
+  max-width: 520px;
+  margin: 18px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1.8px solid #cfd8dc;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0078D7;
+  box-shadow: 0 2px 6px rgba(0,120,215,0.12);
+}
+
+.contact-form button {
+  background: #0078D7;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #005a9e;
 }
