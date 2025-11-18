@@ -8,35 +8,69 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+<script>
+    function toggleMenu() {
+        document.getElementById("nav-menu").classList.toggle("show");
+    }
+<script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("dark");
+
+        if(body.classList.contains("dark")){
+            toggleBtn.textContent = "🌞";
+        } else {
+            toggleBtn.textContent = "🌙";
+        }
+    });
+</script>
 <body>
 <nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <ul id="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<script>
+    function reveal() {
+        let reveals = document.querySelectorAll('.reveal');
+
+        for (let i = 0; i < reveals.length; i++) {
+            let windowHeight = window.innerHeight;
+            let elementTop = reveals[i].getBoundingClientRect().top;
+            let elementVisible = 100;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            } 
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+</script>
   <header id="home">
   <h1>Odugbo Ngbede Christian</h1>
   <p>Biology Education Graduate | Web Design Learner | Aspiring Developer</p>
   <img src="profile.jpg" alt="Odugbo Ngbede Christian" class="profile-pic">
 </header>
+  <button id="theme-toggle">🌙</button>
 
-<section id="about" class="about">
+<section id="home" class="reveal">
   <h2>About Me</h2>
   <p>Hello! I’m Odugbo Ngbede Christian...</p>
 </section>
 
-<section id="skills" class="skills">
+<section id="skills" class="reveal">
   <h2>My Skills</h2>
   <ul>
     <li>HTML & CSS (Learning)</li>
@@ -45,7 +79,8 @@
     <li>Web Design & Creativity</li>
   </ul>
 </section>
-<section id="projects" class="projects">
+<section id="projects" class="reveal">
+ class="projects">
   <h2>My Projects</h2>
 
   <div class="project-container">
@@ -68,14 +103,25 @@
     </div>
   </div>
 </section>
-<section id="contact" class="contact">
+<section id="contact" class="reveal">
   <h2>Contact Me</h2>
-  <p>📧 Email: <a href="mailto:codugbo@gmail.com">codugbo@gmail.com</a></p>
-  <p>📞 Phone: 07034548278</p>
-  <p>🌍 Facebook: <a href="#">Odugbo Ngbede Christian</a></p>
-  <p>📱 WhatsApp: 07034548278</p>
-  <p>📷 Instagram: Odugbo Ngbede Christian</p>
-  <p>🐦 Twitter: @odugbo74215</p>
+
+  <p>If you would like to reach me, kindly use the form below:</p>
+
+  <form action="https://formsubmit.co/codugbo@gmail.com" method="POST" class="contact-form">
+
+    <!-- Redirect after submit -->
+    <input type="hidden" name="_next" value="https://codugbo-dotcom.github.io/My-profile-/thanks.html">
+
+    <!-- Disable captcha -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <input type="text" name="name" placeholder="Your Full Name" required>
+    <input type="email" name="email" placeholder="Your Email Address" required>
+    <textarea name="message" rows="6" placeholder="Write your message here" required></textarea>
+
+    <button type="submit" class="cv-button">Send Message</button>
+  </form>
 </section>
 <a href="Odugbo_CV.pdf" download class="cv-button">📄 Download My CV</a>
   <footer>
